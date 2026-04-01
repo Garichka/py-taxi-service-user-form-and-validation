@@ -23,8 +23,8 @@ class DriverCreationForm(UserCreationForm):
 
         if not re.match(r"^[A-Z]{3}\d{5}$", license_number):
             raise ValidationError(
-                "License number must start with 3"
-                " uppercase letters and end with 5 digits."
+                "License number must start with 3 uppercase "
+                "letters and end with 5 digits."
             )
         return license_number
 
@@ -41,8 +41,10 @@ class DriverLicenseUpdateForm(forms.ModelForm):
             raise ValidationError("License number is required.")
 
         if not re.match(r"^[A-Z]{3}\d{5}$", license_number):
-            raise ValidationError("Invalid format: expected 3 uppercase"
-                                  " letters followed by 5 digits.")
+            raise ValidationError(
+                "Invalid format: expected 3 uppercase "
+                "letters followed by 5 digits."
+            )
         return license_number
 
 
